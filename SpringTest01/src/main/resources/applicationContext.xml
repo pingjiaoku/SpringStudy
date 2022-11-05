@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+">
+
+    <!--使用构造方法实例化Bean-->
+    <bean id="bookDao" class="com.itheima.com.itheima.dao.impl.BookDaoImpl"/>
+
+    <bean id="bookService" class="BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
+
+
+
+
+
+
+<!--    <bean id="bookService" class="BookServiceImpl">
+        &lt;!&ndash;配置service和test的关系，name表示具体属性(根据name的值调用相应的set方法)，ref表示参照哪个bean&ndash;&gt;
+        <property name="test" ref="bookDao"/>
+    </bean>-->
+
+
+    <!--使用静态工厂实例化Bean-->
+<!--    <bean id="compDaoFactory" class="com.itheima.factory.CompDaoFactory" factory-method="getDao"/>-->
+
+    <!--使用实例化工厂实例化Bean-->
+<!--    <bean id="userDaoFactory" class="com.itheima.factory.UserDaoFactory"/>-->
+
+<!--    <bean id="userDao" factory-method="getDao" factory-bean="userDaoFactory"/>-->
+
+    <!--使用FactoryBean实例化Bean-->
+<!--    <bean id="userFactoryBean" class="com.itheima.factory.UserDaoFactoryBean"/>-->
+
+    <!--集合注入案例-->
+    <!--<bean id="listTest" class="com.itheima.test.Test">
+        <property name="array">
+            <array>
+                <value>1234</value>
+                <value>12345</value>
+                <value>123456</value>
+                <value>1234567</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>1234</value>
+                <value>12345</value>
+                <value>123456</value>
+                <value>1234567</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>1234</value>
+                <value>12345</value>
+                <value>123456</value>
+                <value>1234567</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key1" value="val1"/>
+                <entry key="key2" value="val2"/>
+                <entry key="key3" value="val3"/>
+                <entry key="key4" value="val4"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="key1">val1</prop>
+                <prop key="key2">val2</prop>
+                <prop key="key3">val3</prop>
+                <prop key="key4">val4</prop>
+            </props>
+        </property>
+    </bean>-->
+
+    <!--数据源对象管理案例-druid-->
+<!--    <bean id="druid" class="com.alibaba.druid.pool.DruidDataSource">-->
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+<!--        <property name="url" value="jdbc:mysql://localhost:3306/test"/>-->
+<!--        <property name="username" value="root"/>-->
+<!--        <property name="password" value="12456"/>-->
+<!--    </bean>-->
+
+<!--    &lt;!&ndash;加载properties文件&ndash;&gt;-->
+<!--    <context:property-placeholder location="classpath*:*.properties" system-properties-mode="NEVER"/>-->
+<!--    &lt;!&ndash;使用${}读取加载的属性值&ndash;&gt;-->
+<!--    <bean id="druid" class="com.alibaba.druid.pool.DruidDataSource" lazy-init="true">-->
+<!--        <property name="driverClassName" value="${jdbc.driver}"/>-->
+<!--        <property name="url" value="${jdbc.url}"/>-->
+<!--        <property name="username" value="${jdbc.username}"/>-->
+<!--        <property name="password" value="${jdbc.password}"/>-->
+<!--    </bean>-->
+<!--    <bean id="book" class="com.itheima.com.itheima.dao.impl.BookDaoImpl">-->
+<!--        <property name="str" value="${username}"/>-->
+<!--        <property name="number" value="${password}"/>-->
+<!--    </bean>-->
+</beans>
