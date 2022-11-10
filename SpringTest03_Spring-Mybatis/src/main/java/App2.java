@@ -1,7 +1,5 @@
 import com.itheima.config.SpringConfig;
 import com.itheima.dao.AccountDao;
-import com.itheima.service.AccountService;
-import com.itheima.service.Impl.AccountServiceImpl;
 import com.itheima.tomain.Account;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

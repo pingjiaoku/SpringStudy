@@ -10,9 +10,9 @@
 ">
 
     <!--使用构造方法实例化Bean-->
-    <bean id="bookDao" class="com.itheima.com.itheima.dao.impl.BookDaoImpl"/>
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"/>
 
-    <bean id="bookService" class="BookServiceImpl">
+    <bean id="bookService" class="com.itheima.service.BookServiceImpl">
         <property name="bookDao" ref="bookDao"/>
     </bean>
 

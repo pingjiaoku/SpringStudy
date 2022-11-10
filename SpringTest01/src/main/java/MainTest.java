@@ -28,10 +28,10 @@ public class MainTest {
         // 获取aoc容器（从类路径下获取）
         ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
         // （从文件系统中获取，需要用绝对路径）
-        ApplicationContext ctx2 = new FileSystemXmlApplicationContext("D:\\javaweb\\SpringTest\\SpringTest01\\src\\main\\resources\\applicationContext.xml");
+//        ApplicationContext ctx2 = new FileSystemXmlApplicationContext("D:\\javaweb\\SpringTest\\SpringTest01\\src\\main\\resources\\applicationContext.xml");
 
         // 使用Bean名称获取
-        BookDao bookDao = (BookDao) ctx2.getBean("bookDao");
+        BookDao bookDao = (BookDao) ctx.getBean("bookDao");
         // 使用Bean名称和指定类型，与上无区别
 //        BookDao bookDao1 = ctx.getBean("book", BookDao.class);
 //        // 使用Bean类型获取，有缺陷，不能有多个相同的Bean类型
